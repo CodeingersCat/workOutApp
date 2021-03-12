@@ -11,9 +11,10 @@ router.route('/add').post((req, res) => {
     const name = req.body.name
     const description = req.body.description
     const duration = Number(req.body.duration)
-    const date = Date(req.body.date)
+    const date = Date(req.body.rdate)
+    const sysdate = Date(req.body.sysdate)
 
-    const newExercise = new exercise({name, description, duration, date})
+    const newExercise = new exercise({name, description, duration, date, sysdate})
 
     newExercise.save()
         .then(exercise => {
@@ -37,7 +38,7 @@ router.route('/:id').get((req, res) => {
 router.route('/delete/:id').delete((req, res) => {
     exercise.findByIdAndDelete(req.params.id)
         .then(exers => {
-            res.json(exers.name + " successfully deleted")
+            res.json({"id": req.params.id})
         })
         .catch(err => {
             res.status(400).json("Error : " + err)
@@ -50,8 +51,8 @@ router.route('/update/:id').post((req, res) => {
             exers.name = req.body.name
             exers.description = req.body.description
             exers.duration = req.body.duration
-            exers.date = req.body.date
-
+            exers.date = req.body.rdate
+            exers.sysdate = req.body.sysdate
             exers.save()
                 .then(() => {
                     res.json("Successfully updated");

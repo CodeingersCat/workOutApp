@@ -19,6 +19,11 @@ const exerSchema = new Schema({
     },
 
     date: {
+        type: String,
+        required: true
+    },
+
+    sysdate: {
         type: Date,
         required: true
     }
