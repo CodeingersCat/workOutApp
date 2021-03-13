@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-dark bg-dark navbar-expand-lg py-2 px-5">
       <Link to="/" className="navbar-brand" style={{outline: "none"}}>
-        <p className="h2 border border-danger pt-2 pb-3 px-3" >W O R K __ O U T</p>
+        <p className="h5 border border-danger pt-2 pb-2 px-3" >W O R K __ O U T</p>
       </Link>
       <button
         className="custom-toggler navbar-toggler"
