@@ -15,7 +15,7 @@ export const NewUser = () => {
 
      const onSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:5000/users/add', user)
+        axios.post('https://workout-list-app.herokuapp.com/users/add', user)
         .then(user => {
             window.location = '/'
         })

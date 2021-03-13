@@ -5,7 +5,7 @@ export const Exercise = () => {
   const [execs, setExecs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/exercises").then((res) => {
+    axios.get("https://workout-list-app.herokuapp.com/exercises").then((res) => {
       let exers = res.data.map((exes) => {
         return {
           name: exes.name,
@@ -20,7 +20,7 @@ export const Exercise = () => {
   }, []);
 
   const deleteEx = (id) => {
-    axios.delete("http://localhost:5000/exercises/delete/" + id).then((res) => {
+    axios.delete("https://workout-list-app.herokuapp.com/delete/" + id).then((res) => {
       let exers = execs.filter((ex) => ex.id !== res.data.id);
       setExecs(exers);
     });

@@ -17,7 +17,7 @@ export const EditExercise = () => {
   const { name, description, duration, sysdate } = values;
 
   useEffect(() => {
-    axios.get("http://localhost:5000/exercises/" + id).then((da) => {
+    axios.get("https://workout-list-app.herokuapp.com/exercises/" + id).then((da) => {
       const d = da.data;
       setValues({...values, name: d.name, description: d.description, duration: d.duration, sysdate: new Date(d.sysdate)});
       
@@ -35,7 +35,7 @@ export const EditExercise = () => {
     const rdate = sysdate.toString().substring(0, pos)
     const exers = {name, duration, description, rdate, sysdate};
     axios
-      .post("http://localhost:5000/exercises/update/"+id, exers)
+      .post("https://workout-list-app.herokuapp.com/exercises/update/"+id, exers)
       .then((user) => {
         window.location = "/";
       })

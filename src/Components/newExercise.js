@@ -20,7 +20,7 @@ export const CreateExercise = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:5000/users").then((userslist) => {
+    axios.get("https://workout-list-app.herokuapp.com/users").then((userslist) => {
       if (userslist.data.length > 0) {
         setExer({
           ...exer,
@@ -38,7 +38,7 @@ export const CreateExercise = () => {
     console.log(rdate);
     const exers = {name, duration, description, rdate, sysdate};
     axios
-      .post("http://localhost:5000/exercises/add", exers)
+      .post("https://workout-list-app.herokuapp.com/add", exers)
       .then((user) => {
         window.location = "/";
       })
