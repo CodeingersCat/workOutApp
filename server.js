@@ -35,6 +35,7 @@ const exerRoute = require("./routes/exercise");
 
 app.use('/exercises', exerRoute);
 app.use('/users', userRoute)
+app.use('/', (req, res) => { res.send("Good morning sunshine")})
 
 //server ignition
 app.listen(port, ()=> {
