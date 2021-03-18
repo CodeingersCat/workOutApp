@@ -20,7 +20,7 @@ export const Exercise = () => {
   }, []);
 
   const deleteEx = (id) => {
-    axios.delete("https://workout-list-app.herokuapp.com/delete/" + id).then((res) => {
+    axios.delete("https://workout-list-app.herokuapp.com/exercises/delete/" + id).then((res) => {
       let exers = execs.filter((ex) => ex.id !== res.data.id);
       setExecs(exers);
     });
