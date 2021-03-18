@@ -35,7 +35,6 @@ export const CreateExercise = () => {
     e.preventDefault();
     let pos = date.toString().search('G');
     const rdate = date.toString().substring(0, pos)
-    console.log(rdate);
     const exers = {name, duration, description, rdate, sysdate};
     axios
       .post("https://workout-list-app.herokuapp.com/exercises/add", exers)
@@ -54,10 +53,10 @@ export const CreateExercise = () => {
         <br />
         <div className="container w-75 mt-5">
           <div className="mb-3">
-            <select className="form-select" placeholder="Username">
+            <select value={name} onChange={handleChange("name")} className="form-select" placeholder="Username">
               <option defaultValue>Username</option>
               {users.map(user => (
-                  <option onClick={handleChange("name")} key={user.id}>{user.name}</option>
+                  <option key={user.id}>{user.name}</option>
               ))}
             </select>
           </div>
@@ -106,5 +105,9 @@ export const CreateExercise = () => {
     );
   };
 
-  return <div>{formInput()}</div>;
+  return( 
+  <div>
+    {formInput()}
+  </div>
+  )
 };
