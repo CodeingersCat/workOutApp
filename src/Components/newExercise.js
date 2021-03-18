@@ -66,6 +66,7 @@ export const CreateExercise = () => {
               className="form-control"
               placeholder="Description"
               style={{ height: "100px" }}
+              maxLength="30"
               value={description}
               onChange={handleChange("description")}
             ></textarea>

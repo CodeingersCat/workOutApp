@@ -3,6 +3,10 @@ import axios from "axios";
 
 export const Exercise = () => {
   const [execs, setExecs] = useState([]);
+  const [loading, setLoading] = useState({
+    message: "Loading..."
+  })
+  const { message } = loading;
 
   useEffect(() => {
     axios.get("https://workout-list-app.herokuapp.com/exercises").then((res) => {
@@ -16,6 +20,9 @@ export const Exercise = () => {
         };
       });
       setExecs(exers);
+      if(exers.length === 0){
+        setLoading({message: "No workouts yet!"})
+      }
     });
   }, []);
 
@@ -28,9 +35,9 @@ export const Exercise = () => {
 
   return (
     <div className="overflow-hidden">
-      <h1 className="text-center mt-3" style={{display: (execs.length === 0) ?  "" : "none"}}>No workouts yet!</h1>
+      <h1 className="text-center mt-3" style={{display: (execs.length === 0) ?  "" : "none"}}>{message}</h1>
       <div className="row px-5">
-        {execs.map((obj) => (
+        {execs.slice(0).reverse().map((obj) => (
           <div className="col-sm-4 py-4 d-flex justify-content-center" key={obj.id}>
             <div
               className="card border border-dark border-2 rounded-3"
