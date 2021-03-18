@@ -38,7 +38,7 @@ export const CreateExercise = () => {
     console.log(rdate);
     const exers = {name, duration, description, rdate, sysdate};
     axios
-      .post("https://workout-list-app.herokuapp.com/add", exers)
+      .post("https://workout-list-app.herokuapp.com/exercises/add", exers)
       .then((user) => {
         window.location = "/";
       })
