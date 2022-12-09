@@ -4,7 +4,10 @@ const exercise = require('../models/exerciseModel')
 router.route('/').get((req, res) => {
     exercise.find()
         .then(exercises => res.json(exercises))
-        .catch(err => res.status(400).json({"error": err}));
+        .catch(err => {
+            console.log(err)
+            res.status(400).json({"error": err})
+        });
 })
 
 router.route('/add').post((req, res) => {
