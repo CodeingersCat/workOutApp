@@ -9,7 +9,7 @@ export const Exercise = () => {
   const { message } = loading;
 
   useEffect(() => {
-    axios.get("https://workout-list-app.herokuapp.com/exercises").then((res) => {
+    axios.get("https://backend-for-the-bois.onrender.com/exercises").then((res) => {
       let exers = res.data.map((exes) => {
         return {
           name: exes.name,
