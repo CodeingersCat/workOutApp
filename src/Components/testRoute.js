@@ -8,7 +8,7 @@ const Test = () => {
 
     const [date, setDate] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/exercises/')
+        axios.get('https://backend-for-the-bois.onrender.com/exercises/')
         .then(res => {
             let dates = res.data.map(r => r.date);
             setDate(dates);

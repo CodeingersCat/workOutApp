@@ -20,7 +20,7 @@ export const CreateExercise = () => {
   };
 
   useEffect(() => {
-    axios.get("https://workout-list-app.herokuapp.com/users").then((userslist) => {
+    axios.get("https://backend-for-the-bois.onrender.com/users").then((userslist) => {
       if (userslist.data.length > 0) {
         setExer({
           ...exer,
